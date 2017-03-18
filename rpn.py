@@ -12,11 +12,11 @@ OPERATORS = {
 	'^': operator.pow,
 }
 
-def useless(arg):
-	i = 0
-	for operand in arg:
-		i = i + 1
-	print(arg)
+#def useless(arg):
+#	i = 0
+#	for operand in arg:
+#		i = i + 1
+#	print(arg)
 
 def calculate(arg):
 	print("Calculate " + colorize(arg))
