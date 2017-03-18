@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import operator
+import readline
+from termcolor import colored
 
 OPERATORS = {
 	'+': operator.add,
@@ -12,6 +14,7 @@ OPERATORS = {
 
 
 def calculate(arg):
+	print("Calculate " + colorize(arg))
 	stack = list()
 	for operand in arg.split():
 		try:
@@ -25,6 +28,19 @@ def calculate(arg):
 			
 			stack.append(result)
 	return stack.pop()
+
+def colorize(input_t):
+	output = ""
+	for char in input_t.split():
+		if char in OPERATORS:
+			output += colored(char, 'green') + " "
+		elif float(char) < 0:
+			output += colored(char, 'red') + " "
+		else:
+			output += char + " "
+	return output
+
+
 
 def main():
 	while True:
